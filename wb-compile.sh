@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# define colored print functions
 print_yellow() {
     printf "\e[1;33m$1\e[0m"
 }
@@ -26,6 +25,6 @@ fi
 print_yellow "\nWas chosen \"$flavor\" flavor and \"$build_type\" build type\n"
 
 print_yellow "\n...assemble app...\n\n" && \
-	./gradlew app:assemble$flavor$build_type && \
-	print_yellow "\n...assemble docsparser...\n\n" && \
-	./gradlew :flavored:docsparser:docsparserdynamic:assemble$flavor$build_type
+    ./gradlew app:assemble$flavor$build_type && \
+    print_yellow "\n...assemble docsparser...\n\n" && \
+    ./gradlew :flavored:docsparser:docsparserdynamic:assemble$flavor$build_type
