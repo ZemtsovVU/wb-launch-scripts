@@ -23,8 +23,9 @@ if [[ "$flavor" == "" ]] || [[ "$build_type" == "" ]]; then
     exit
 fi
 
-print_yellow "\nWas chosen \"$flavor\" flavor and \"$build_type\" build type\n\n"
+print_yellow "\nWas chosen \"$flavor\" flavor and \"$build_type\" build type\n"
 
-./gradlew app:assemble$flavor$build_type && \
-	echo && \
+print_yellow "\n...assemble app...\n\n" && \
+	./gradlew app:assemble$flavor$build_type && \
+	print_yellow "\n...assemble docsparser...\n\n" && \
 	./gradlew :flavored:docsparser:docsparserdynamic:assemble$flavor$build_type
