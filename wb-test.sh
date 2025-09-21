@@ -28,5 +28,7 @@ fi
 
 print_yellow "($gradle_command)\n\n"
 
-path=~/dev/android/wb-market
-$path/gradlew -p $path $gradle_command
+#path=~/dev/android/wb-market
+#$path/gradlew -p $path $gradle_command
+
+./gradlew $gradle_command

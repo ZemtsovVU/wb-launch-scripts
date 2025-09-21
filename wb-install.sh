@@ -23,8 +23,10 @@ if [[ "$flavor" == "" ]] || [[ "$build_type" == "" ]]; then
     exit
 fi
 
-print_yellow "\nWas chosen \"$flavor\" flavor and \"$build_type\" build type\n\n"
+print_yellow "\nWas chosen \"$flavor\" flavor and \"$build_type\" build type\n"
 
-./gradlew app:assemble$flavor$build_type && \
-	echo && \
-	./gradlew :flavored:docsparser:docsparserdynamic:assemble$flavor$build_type
+# print_yellow "\n...installing (with gradle)...\n\n"
+# ./gradlew :app:installGoogleDebug
+
+print_yellow "\n...installing (with adb)...\n\n"
+adb install app/build/outputs/apk/$flavor/$build_type/app-$flavor-$build_type.apk

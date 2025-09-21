@@ -11,7 +11,6 @@ print_red() {
     printf "\e[1;31m$1\e[0m"
 }
 
-print_yellow "\nStarting detektAll...\n\n"
+print_yellow "\nStarting detektChanges...\n\n"
 
-path=~/dev/android/wb-market
-$path/gradlew -p $path detektAll
+./gradlew detektChanges
